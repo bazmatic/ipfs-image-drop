@@ -1,11 +1,22 @@
 {
   "name": "ipfs-image-drop",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Drag and drop an image file to store it on IPFS",
   "main": "lib/ipfs-image-drop.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bazmatic/ipfs-image-drop.git"
+  },
   "scripts": {
     "build": "babel ./src --out-dir ./lib"
   },
+  "keywords": [
+    "react-component",
+    "react",
+    "ipfs",
+    "drag",
+    "drop"
+  ],
   "babel": {
     "presets": [
       "env",

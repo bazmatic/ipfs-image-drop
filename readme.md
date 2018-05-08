@@ -10,7 +10,7 @@ npm install ipfs-image-drop
 
 ## Usage
 
-```
+```javascript
 import React, {	Component } from "react";
 import IpfsImageDrop from "ipfs-image-drop";
 
@@ -25,15 +25,16 @@ ReactDOM.render(
 );
 
 ```
+Please see the `examples` folder for a more detailed example.
 
 The following props are available:
-### ipfsHost
+#### ipfsHost
 The host name of the IPFS node
-### ipfsPort
+#### ipfsPort
 The port number of the IPFS node
-### resizeWidth/resizeHeight
+#### resizeWidth/resizeHeight
 If specified, the image will be resized to have this width/height, retaining the original aspect ratio. Note that only one resize attribute may be specified; resizeHeight or resizeWidth. If both are specified, one will be ignored.
-### onUpload
+#### onUpload
 Function to call when the file has been uploaded to IPFS. The function will be called with an object of the following structure as the parameter:
 ```
 {
@@ -45,13 +46,11 @@ Function to call when the file has been uploaded to IPFS. The function will be c
 }
 ```
 
-Please see the `examples` folder for a more detailed example.
-
-## Styling
+### Styling
 
 The component contains no styling. However, the drop zone element changes its class to reflect the current state. The following style selectors may be used:
 
-```
+```css
 
 .IpfsImageDrop .iid-dropZone {
     / *Base style for the drop zone. */

@@ -1,13 +1,9 @@
-.IpfsImageDrop .iid-dropZone {
-    border: 1px dotted silver;
+.iid-dropZone {
+    border: 2px dashed silver;
     width: 200px;
     height: 200px;
 }
 
-.IpfsImageDrop .iid-dropZone.ready {
-
-}
-
-.IpfsImageDrop .iid-dropZone.draggingOver {
+.iid-dropZone.draggingOver {
   background-color: silver;
 }

@@ -3,9 +3,9 @@ import React,
 	Component
 }
 from "react";
-import IpfsImageDrop from "../../../ipfs-image-drop.js"; //"ipfs-image-drop";
-//import IpfsImageDrop from "ipfs-image-drop";
-//
+//import IpfsImageDrop from "../../../ipfs-image-drop.js"; //"ipfs-image-drop";
+import IpfsImageDrop from "ipfs-image-drop";
+
 import "./app.css";
 
 class App extends Component

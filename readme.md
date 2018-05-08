@@ -1,6 +1,5 @@
 
-A React component that allows dropping image files into the browser for automatic upload to IPFS.
-
+A React component that allows dropping image files into the browser for automatic upload to [IPFS](https:/ipfs.io)
 
 ## Installation
 

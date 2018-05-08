@@ -36,7 +36,7 @@ The port number of the IPFS node
 If specified, the image will be resized to have this width/height, retaining the original aspect ratio. Note that only one resize attribute may be specified; resizeHeight or resizeWidth. If both are specified, one will be ignored.
 #### onUpload
 Function to call when the file has been uploaded to IPFS. The function will be called with an object of the following structure as the parameter:
-```
+```javascript
 {
     ipfsData: {
         hash: String, //IPFS hash of stored file

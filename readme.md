@@ -48,7 +48,7 @@ Function to call when the file has been uploaded to IPFS. The function will be c
 
 ### Styling
 
-The component contains no styling. However, the drop zone element changes its class to reflect the current state. The following style selectors may be used:
+The component contains almost no styling. However, the drop zone element changes its class to reflect the current state. The following  CSS selectors may be used to change the style of the drop zone depending on the state:
 
 ```css
 

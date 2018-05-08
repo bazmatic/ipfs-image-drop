@@ -1,0 +1,17 @@
+{
+  "name": "ipfs-image-drop",
+  "version": "1.0.1",
+  "description": "Drag and drop an image file to store it on IPFS",
+  "main": "ipfs-image-drop.js",
+  "scripts": {},
+  "author": "Barry Earsman",
+  "license": "ISC",
+  "dependencies": {
+    "ipfs-api": "^20.2.0"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.6.1",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2"
+  }
+}

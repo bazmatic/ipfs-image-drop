@@ -1,0 +1,19 @@
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.IpfsImageDrop .dropZone {
+    border: 1px dotted silver;
+    width: 200px;
+    height: 200px;
+}
+
+.IpfsImageDrop .dropZone.ready {
+
+}
+
+.IpfsImageDrop .dropZone.draggingOver {
+  background-color: silver;
+}

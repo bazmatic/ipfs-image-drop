@@ -17,9 +17,11 @@ export default class IpfsImageDrop extends Component {
        this.ipfsApi = IpfsAPI(props.ipfsHost, props.ipfsPort || 5001); 
     }
 
+
     render() {
         let classList = "iid-dropZone " + this.state.status;
-        return (<div className="IpfsImageDrop">
+        return (
+            <div className="IpfsImageDrop">
                 <div className={classList} onDrop={this.onDrop.bind(this)} onDragOver={this.onDragOver.bind(this)} onDragLeave={this.onDragLeave.bind(this)}>
                     <div className="iid-prompt">{this.props.prompt || ""}</div>
                 </div>
@@ -28,28 +30,33 @@ export default class IpfsImageDrop extends Component {
     }
     
     onDrop(event) {
-        event.preventDefault()  //Prevent file from being opened in the browser
+        if (event && event.preventDefault) {
+            event.preventDefault();  //Prevent file from being opened in the browser
         
-        //Note that we can't make the event handler itself asynchronous or everything will break.
-        (async ()=>{
-            //If there are one or more dragged files,
-            if (event.dataTransfer.files && event.dataTransfer.files.length) {
-                //Get the first file and upload it to IPFS
-                let file = event.dataTransfer.files[0];
-                let ipfsData = await this.uploadImage(file);
-                
-                //Call back with the response from IPFS
-                this.onUpload(ipfsData);
-                
-                //Show the drop zone as available again
-                this.setState({status: "ready", ipfsData: ipfsData});     
-            }
-        })()
+            //Note that we can't make the event handler itself asynchronous or everything will break.
+            (async ()=>{
+                //If there are one or more dragged files,
+                if (event.dataTransfer.files && event.dataTransfer.files.length) {
+                    //Get the first file and upload it to IPFS
+                    let file = event.dataTransfer.files[0];
+                    let ipfsData = await this.uploadImage(file);
+                    
+                    //Call back with the response from IPFS
+                    this.onUpload(ipfsData);
+                    
+                    //Show the drop zone as available again
+                    this.setState({status: "ready", ipfsData: ipfsData});     
+                }
+            })()
+        }
     }
     
+
     onDragOver(event) {
-        event.preventDefault(); //Turn off default drag-over behaviour
-        this.setState({status: "draggingOver"});
+        if (event && event.preventDefault) {
+            event.preventDefault(); //Turn off default drag-over behaviour
+            this.setState({status: "draggingOver"});
+        }
     }
     
     onDragLeave(event) {
@@ -63,28 +70,31 @@ export default class IpfsImageDrop extends Component {
             
             //Convert the file to a data URL
             let ipfsData;
-            let fileReader = new FileReader();
-            fileReader.readAsDataURL(file);
-            let dataUrl = fileReader.result;
-            
-            //If required, resize the file
-            if (this.props.resizeWidth || this.props.resizeHeight) {
-                dataUrl = resizeDataUrl(dataUrl, this.props.resizeHeight, this.props.resizeWidth);
-            }
-            
-            //Convert the data URL to a buffer
-            const buffer = Buffer.from(dataUrl);
+            var fileReader = new FileReader();
+            fileReader.onloadend = (()=>{
+               let dataUrl = fileReader.result;
+                
+                //If required, resize the file
+                if (this.props.resizeWidth || this.props.resizeHeight) {
+                    dataUrl = resizeDataUrl(dataUrl, this.props.resizeHeight, this.props.resizeWidth);
+                }
+                
+                //Convert the data URL to a buffer
+                const buffer = Buffer.from(dataUrl);
 
-            //Upload the buffer
-            //TODO: Make the progress callback a prop
-            self.ipfsApi.add(buffer, { progress: (prog) => console.log(`received: ${prog}`) })
-            .then((response) => {
-                ipfsData = response[0]
-                resolve({ipfsData, dataUrl});
-            }).catch((err) => {
-                console.error(err);
-                reject(err);
-            })
+                //Upload the buffer
+                //TODO: Make the progress callback a prop
+                self.ipfsApi.add(buffer, { progress: (prog) => console.log(`received: ${prog}`) })
+                .then((response) => {
+                    ipfsData = response[0]
+                    resolve({ipfsData, dataUrl});
+                }).catch((err) => {
+                    console.error(err);
+                    reject(err);
+                }) 
+            });
+            fileReader.readAsDataURL(file);
+
         })
 
       }

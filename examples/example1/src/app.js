@@ -10,8 +10,8 @@ class App extends Component {
       super(props);
       
       this.state = {
-        ipfsHost: "threadme.in",
-        ipfsPort: 8443
+        ipfsHost: "ipfs.infura.io",
+        ipfsPort: 5001
       };
       
     }
@@ -38,6 +38,9 @@ class App extends Component {
         <div className="row">
           {link}
         </div>
+        <div className="row">
+          <img src={this.state.dataUrl} />
+        </div>
       </div>
     );
   }
@@ -55,7 +58,8 @@ class App extends Component {
   onUpload(data) {
     console.log("app.onUpload()", data);
     this.setState({
-      ipfsLink: "https://gateway.ipfs.io/ipfs/" + data.path
+      ipfsLink: "https://gateway.ipfs.io/ipfs/" + data.ipfsData.path,
+      dataUrl: data.dataUrl
     })
     
   }

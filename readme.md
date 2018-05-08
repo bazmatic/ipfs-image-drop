@@ -52,7 +52,7 @@ The component contains almost no styling. However, the drop zone element changes
 ```css
 
 .IpfsImageDrop .iid-dropZone {
-    / *Base style for the drop zone. */
+    /* Base style for the drop zone. */
 }
 
 .IpfsImageDrop .iid-dropZone.ready {

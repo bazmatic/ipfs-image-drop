@@ -4,16 +4,23 @@
     flex-direction: row;
 }
 
-.IpfsImageDrop .dropZone {
+.IpfsImageDrop .iid-dropZone {
     border: 1px dotted silver;
     width: 200px;
     height: 200px;
 }
 
-.IpfsImageDrop .dropZone.ready {
+.IpfsImageDrop .iid-dropZone.ready {
 
 }
 
-.IpfsImageDrop .dropZone.draggingOver {
+
+.IpfsImageDrop .iid-dropZone.uploading {
+	background-color: yellow;
+
+}
+
+.IpfsImageDrop .iid-dropZone.draggingOver {
   background-color: silver;
 }
+

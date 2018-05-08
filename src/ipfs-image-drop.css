@@ -1,0 +1,9 @@
+.iid-dropZone {
+    border: 2px dashed silver;
+    width: 200px;
+    height: 200px;
+}
+
+.iid-dropZone.draggingOver {
+  background-color: silver;
+}

@@ -10,7 +10,8 @@ npm install ipfs-image-drop
 ## Usage
 
 ```javascript
-import React, {	Component } from "react";
+import React from "react";
+import ReactDOM from "react-dom";
 import IpfsImageDrop from "ipfs-image-drop";
 
 ReactDOM.render(

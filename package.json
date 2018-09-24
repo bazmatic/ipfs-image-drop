@@ -1,6 +1,6 @@
 {
   "name": "ipfs-image-drop",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Drag and drop an image file to store it on IPFS",
   "main": "lib/ipfs-image-drop.js",
   "repository": {

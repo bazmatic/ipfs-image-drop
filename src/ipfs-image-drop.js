@@ -4,6 +4,7 @@ import React,
 	Component
 }
 from 'react';
+require('babel-polyfill')
 //import './ipfs-image-drop.css';
 const IpfsAPI = require('ipfs-api'); //Needs a 'require' instead of import
 
@@ -17,15 +18,15 @@ export default class IpfsImageDrop extends Component
 			status: "ready"
 		};
 		this.onUpload = this.props.onUpload || console;
-		this.ipfsApi = IpfsAPI(this.props.ipfsHost, this.props.ipfsPort || 5001);
+		this.ipfsApi = IpfsAPI(this.props.ipfsHost, this.props.ipfsPort || 5001, {protocol: 'https'});
 	}
 
 	componentWillReceiveProps(props)
 	{
 		//Update the connection settings if props are altered
-		this.ipfsApi = IpfsAPI(props.ipfsHost, props.ipfsPort || 5001);
-	}
+		this.ipfsApi = IpfsAPI(props.ipfsHost, props.ipfsPort || 5001, {protocol: 'https'});
 
+	}
 
 	render()
 	{

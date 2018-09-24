@@ -26,12 +26,12 @@
   "author": "Barry Earsman",
   "license": "ISC",
   "dependencies": {
-    "ipfs-api": "23.0.0"
+    "ipfs-api": "23.0.0",
+    "babel-polyfill": "^6.26.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
-    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "react": "^16.5.2",
